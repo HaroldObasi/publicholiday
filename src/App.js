@@ -1,18 +1,21 @@
-
-import './App.css';
-import {Routes, Route} from "react-router-dom"
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
+import Home from "./pages/Home";
+import CountryInfo from "./pages/CountryInfo";
 
 function App() {
-  return (
-    <div className="">
-   
-        
-       <div className='bg-lightBlue p-16 border-4 border-strongBlue text-center text-dark font-header text-5xl  px-10 font-bold '>
-        Publicholiday
-       </div>
-   
-    </div>
-  );
+    return (
+        <Router>
+            <ScrollToTop>
+                <Routes>
+                    {/* place all your routes and pages under here */}
+                    <Route path="/" element={<Home />} />
+                    <Route path="/country" element={<CountryInfo />} />
+                </Routes>
+            </ScrollToTop>
+        </Router>
+    );
 }
 
 export default App;
