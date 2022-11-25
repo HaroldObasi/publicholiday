@@ -5,7 +5,7 @@ import EachCountry from "./EachCountry";
 const AllCountriesBody = () => {
   return (
     <div className="text-dark">
-      <div className="mx-[6.25rem] min-h-screen px-14 pt-7 bg-lightBlue mt-14">
+      <div className="md:mx-[6.25rem] min-h-screen px-14 pt-7 bg-lightBlue mt-14">
         <h2 className="font-medium text-3xl">Holidays</h2>
         <p className="font-normal text-base mb-8">
           Discover Holidays and other significant holidays celebrated around the

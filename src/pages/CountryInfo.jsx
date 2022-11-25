@@ -1,7 +1,10 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 const CountryInfo = () => {
     return (
+        <>
+        <Navbar/>
         <section className="px-5 font-primary text-dark">
             <div className="bg-lightBlue w-full py-4 px-5 ">
                 <div className="space-y-2 mb-5">
@@ -58,6 +61,7 @@ const CountryInfo = () => {
                 </div>
             </div>
         </section>
+        </>
     );
 };
 
