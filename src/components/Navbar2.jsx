@@ -36,7 +36,7 @@ const Navbar2 = () => {
         fetchData(coordinate);
     });
     return (
-        <header className="px-5 md:px-10 py-5">
+        <header className="px-5 md:px-[6.25rem] py-5">
             <div className="flex flex-col md:flex-row md:justify-between w-full md:items-center space-y-3 md:space-y-0">
                 <div className="basis-1/4">
                     <img src={logo} alt="" className="w-[112px] md:w-[286px]" />
