@@ -60,7 +60,6 @@ const Home = () => {
                                     </td>
                                     <td className="py-4 px-6">{item.name}</td>
                                     <td className="py-4 px-6">{item.region}</td>
-                                    <td className="py-4 px-6">HOLIDAY</td>
                                 </tr>
                             ))}
                         </tbody>
