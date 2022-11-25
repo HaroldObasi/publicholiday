@@ -4,6 +4,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import CountryInfo from "./pages/CountryInfo";
+import AllCountries from "./pages/AllCountries";
 
 function App() {
     return (
@@ -15,6 +16,10 @@ function App() {
                         {/* place all your routes and pages under here */}
                         <Route path="/" element={<Home />} />
                         <Route path="/country" element={<CountryInfo />} />
+                        <Route
+                            path="/allcountries"
+                            element={<AllCountries />}
+                        />
                     </Routes>
                 </ScrollToTop>
             </Router>
