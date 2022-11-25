@@ -4,7 +4,6 @@ import { getCountryHoliday } from "../apiCalls/getCountryHoliday";
 
 const CountryInfo = () => {
     const { countryName } = useParams();
-    const [url, setUrl] = useState("");
     const [holidays, setHolidays] = useState([]);
 
     const locArray = window.location.href.split("/");

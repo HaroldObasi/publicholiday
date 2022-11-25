@@ -1,5 +1,4 @@
 import axios from "axios";
-const key = "cf7765ac-5c8a-45b8-b923-c0b731ac4726";
 
 export const getCountryHoliday = async (url) => {
     try {
