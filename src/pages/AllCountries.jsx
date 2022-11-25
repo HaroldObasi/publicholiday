@@ -1,14 +1,12 @@
-import React from 'react'
-import AllCountriesBody from '../components/AllCountriesBody'
-import Navbar from '../components/Navbar'
+import React from "react";
+import AllCountriesBody from "../components/AllCountriesBody";
 
 const AllCountries = () => {
-  return (
-    <>
-    <Navbar/>
-    <AllCountriesBody/>
-    </>
-  )
-}
+    return (
+        <>
+            <AllCountriesBody />
+        </>
+    );
+};
 
-export default AllCountries
+export default AllCountries;
