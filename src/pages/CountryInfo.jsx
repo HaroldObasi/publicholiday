@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
 import { useParams } from "react-router-dom";
 import { getCountryHoliday } from "../apiCalls/getCountryHoliday";
 
@@ -20,7 +21,9 @@ const CountryInfo = () => {
 
     console.log(holidays);
     return (
-        <section className="px-0 md:px-10 font-primary text-dark">
+        <>
+        {/* <Navbar/> */}
+        <section className="px-5 font-primary text-dark">
             <div className="bg-lightBlue w-full py-4 px-5 ">
                 <div className="space-y-2 mb-5">
                     <p className="text-[28px] font-medium">Holidays</p>
@@ -57,6 +60,7 @@ const CountryInfo = () => {
                 </div>
             </div>
         </section>
+        </>
     );
 };
 
