@@ -19,8 +19,8 @@ const Home = () => {
 
   const searchCountries = (e) => {
     input.current = e.target.value;
-    if(input.current ==""){
-      setSearchedCountries([])
+    if (input.current == "") {
+      setSearchedCountries([]);
     }
     let userInput = new RegExp(input.current);
     // console.log({userInput, userIn})
@@ -32,7 +32,9 @@ const Home = () => {
     console.log(matches);
     setSearchedCountries(matches);
 
-    setTimeout(()=>{setSearchedCountries([])}, 5000)
+    setTimeout(() => {
+      setSearchedCountries([]);
+    }, 5000);
   };
 
   return (
@@ -66,37 +68,40 @@ const Home = () => {
               name=""
               id=""
             />
-            {searchedCountries===[]?"":
-            <div className="absolute z-20 top-16 p-5 bg-lightBlue">
-            <table>
-              {searchedCountries.map((item, index) => (
-                <>
-                  <tr
-                    className="p-5 bg-white my-5 hover:bg-gray-100  cursor-pointer"
-                    key={item.area}
-                    onClick={() =>
-                      (window.location.href = `country/${item.alpha2Code}`)
-                    }
-                  >
-                    <td className="py-4 px-6">
-                      <img
-                        className="w-[50px]"
-                        src={item.flag}
-                        alt="Coutry flag"
-                      />
-                    </td>
-                    <td className="py-4 px-6">{item.name}</td>
-                  </tr>
-                  <tr className="h-2">
-                    <td colSpan={6}></td>
-                  </tr>
-                </>
-              ))}
-            </table>
-          </div>}
+            {searchedCountries === [] ? (
+              ""
+            ) : (
+              <div className="absolute z-20 top-16 p-5 bg-lightBlue">
+                <table>
+                  {searchedCountries.map((item, index) => (
+                    <>
+                      <tr
+                        className="p-5 bg-white my-5 hover:bg-gray-100  cursor-pointer"
+                        key={item.area}
+                        onClick={() =>
+                          (window.location.href = `country/${item.alpha2Code}`)
+                        }
+                      >
+                        <td className="py-4 px-6">
+                          <img
+                            className="w-[50px]"
+                            src={item.flag}
+                            alt="Coutry flag"
+                          />
+                        </td>
+                        <td className="py-4 px-6">{item.name}</td>
+                      </tr>
+                      <tr className="h-2">
+                        <td colSpan={6}></td>
+                      </tr>
+                    </>
+                  ))}
+                </table>
+              </div>
+            )}
           </div>
 
-          <div className="bg-white p-2">
+          <div className="hidden md:block bg-white p-2">
             <select className="mx-4 text-slate-500" name="" id="">
               <option value=""> Alphabetic Order</option>
               <option value=""> Continent</option>
