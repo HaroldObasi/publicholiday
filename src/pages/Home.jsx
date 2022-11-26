@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import { getAllCountries } from "../apiCalls/getAllCountries";
-import { Link } from "react-router-dom";
 import more from "../assets/more.png";
 import search from "../assets/search.png";
+import React, { useEffect, useRef, useState } from "react";
+import { getAllCountries } from "../apiCalls/getAllCountries";
 
 const Home = () => {
   const [allCountries, setAllCountries] = useState([]);
@@ -19,7 +18,7 @@ const Home = () => {
 
   const searchCountries = (e) => {
     input.current = e.target.value;
-    if (input.current == "") {
+    if (input.current === "") {
       setSearchedCountries([]);
     }
     let userInput = new RegExp(input.current);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+//import Navbar from "../components/Navbar";
 import { useParams } from "react-router-dom";
 import { getCountryHoliday } from "../apiCalls/getCountryHoliday";
 

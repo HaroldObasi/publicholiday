@@ -3,11 +3,19 @@ import axios from "axios";
 import logo from "../assets/PublicHoliday.png";
 import locationIcon from "../assets/Vector.png";
 import search from "../assets/search.png";
+import dropdownicon from "../assets/dropdown.png";
+import dropupicon from "../assets/dropdown.png";
 
-const Navbar2 = () => {
+const Navbar2 = ({location}) => {
   const [userCountry, setUserCountry] = useState("");
   const [coordinate, setCoordinate] = useState({});
+  const [dropdown, setdropdown] = useState(false)
 
+  const username = 'John Adam'
+
+  function handleShowProfile () {
+    setdropdown(!dropdown)
+  }
   useEffect(() => {
     const success = (position) => {
       const lat = position.coords.latitude;
@@ -60,15 +68,19 @@ const Navbar2 = () => {
             <input
               type="text"
               className="bg-transparent  inline-block md:text-lg"
-              placeholder="Search"
+              placeholder="Search for a country"
               id=""
             />
           </div>
-          <div className="">
+          <div className="" onClick={handleShowProfile}>
             <p className="inline-block mr-1 underline text-[#888888]">
-              {userCountry?.length > 1 ? <>{userCountry}</> : <>Loading</>}
+              {userCountry?.length > 1 ? <>{userCountry}</> : location === userCountry ? username : <>Loading...</>}
             </p>
+            {userCountry?.length > 1 ? 
             <img className="inline-block" src={locationIcon} alt="" />
+            : 
+            <img className="inline-block" src={dropdown ? dropupicon : dropdownicon} alt="" />
+            }
           </div>
         </div>
       </div>

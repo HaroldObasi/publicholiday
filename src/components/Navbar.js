@@ -1,8 +1,12 @@
 import React from "react";
-
 import search from "../assets/search.png";
 import pin from "../assets/pin.png";
+import { useParams } from "react-router-dom";
+
 const Navbar = () => {
+  const { location } = useParams();
+
+
   return (
     <>
       <nav className="nav grid items-center w-screen h-[7.5rem] bg-white">
@@ -27,7 +31,7 @@ const Navbar = () => {
               />
             </div>
             <div className="ml-3 w-4/12">
-              <p className="text-slate-500 md:text-xl inline-block underline">Nigeria</p>
+              <p className="text-slate-500 md:text-xl inline-block underline">{location}</p>
               <img
                 className="inline-block ml-2 my-auto"
                 width={18}

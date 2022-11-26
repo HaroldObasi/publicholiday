@@ -14,9 +14,10 @@ function App() {
     //         setAllCountries(data);
     //     };
     // }, []);
+    const location = 'Nigeria'
     return (
         <>
-            <Navbar2 />
+            <Navbar2 location={location} />
             <Router>
                 <ScrollToTop>
                     <Routes>
