@@ -1,64 +1,72 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+import { useParams } from "react-router-dom";
+import { getCountryHoliday } from "../apiCalls/getCountryHoliday";
 
 const CountryInfo = () => {
-    return (
-        <section className="px-5 font-primary text-dark">
-            <div className="bg-lightBlue w-full py-4 px-5 ">
-                <div className="space-y-2 mb-5">
-                    <p className="text-[28px] font-medium">Holidays</p>
-                    <p className="text-base font-normal">
-                        Discover holidays and other significant days celebrated
-                        in countries around the world.
-                    </p>
-                </div>
+  const { countryName } = useParams();
+  const [holidays, setHolidays] = useState([]);
 
-                <select
-                    name=""
-                    id=""
-                    className="text-xl bg-transparent font-medium"
-                >
-                    <option value="Afghanistan">Afgahanistan</option>
-                    <option value="Armenia">Armenia</option>
-                    <option value="Argentina">Argentina</option>
-                </select>
+  const locArray = window.location.href.split("/");
+  const countryCode = locArray[locArray.length - 1];
+  useEffect(() => {
+    return async () => {
+      const locArray = window.location.href.split("/");
+      const countryCode = locArray[locArray.length - 1];
+      const url = ` https://holidayapi.com/v1/holidays?pretty&key=cf7765ac-5c8a-45b8-b923-c0b731ac4726&country=${countryCode}&year=2021`;
+      const holidayData = await getCountryHoliday(url);
+      console.log(holidayData.holidays)
+      setHolidays(holidayData.holidays);
+    };
+  }, [countryName]);
 
-                <div className="overflow-x-auto relative mt-5">
-                    <table className="border-collapse w-full text-base text-dark text-left">
-                        <thead className="bg-transparent">
-                            <tr>
-                                <th scope="col" className="py-3 px-6">
-                                    Date
-                                </th>
-                                <th scope="col" className="py-3 px-6">
-                                    Day
-                                </th>
-                                <th scope="col" className="py-3 px-6">
-                                    Name
-                                </th>
-                                <th scope="col" className="py-3 px-6">
-                                    Type
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr className="p-5 bg-white my-5">
-                                <td className="py-4 px-6">20 March</td>
-                                <td className="py-4 px-6">Saturday</td>
-                                <td className="py-4 px-6">March Equinox</td>
-                                <td className="py-4 px-6">Season</td>
-                            </tr>
-                            <tr className="p-5 bg-white my-5">
-                                <td className="py-4 px-6">20 March</td>
-                                <td className="py-4 px-6">Saturday</td>
-                                <td className="py-4 px-6">March Equinox</td>
-                                <td className="py-4 px-6">Season</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-    );
+  console.log(holidays);
+  return (
+    <>
+      <section className="px-5 md:px-[6.25rem] md:mt-14 font-primary text-dark">
+        <div className="bg-lightBlue w-full py-4 px-5 ">
+          <div className="space-y-2 mb-5">
+            <p className="text-[28px] font-medium">Holidays</p>
+            <p className="text-base font-normal">
+              Discover holidays and other significant days celebrated in
+              countries around the world.
+            </p>
+          </div>
+
+          <p className="text-lg">{countryCode}</p>
+
+          <div className="overflow-x-auto relative mt-5">
+            <table className="border-collapse w-full text-base text-dark text-left">
+              <thead className="bg-transparent">
+                <tr>
+                  <th scope="col" className="py-3 px-6">
+                    Date
+                  </th>
+                  <th scope="col" className="py-3 px-6">
+                    Name
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {holidays.map((item) => (
+                  <>
+                    <tr className="p-5 bg-white my-5">
+                      <td className="py-4 px-6">{item.date}</td>
+
+                      <td className="py-4 px-6">{item.name}</td>
+                    </tr>
+                    <tr className="h-2">
+                      <td colSpan={6}></td>
+                    </tr>
+                  </>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 };
 
 export default CountryInfo;
